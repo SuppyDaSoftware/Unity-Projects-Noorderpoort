@@ -1172,7 +1172,7 @@ GameObject:
   - component: {fileID: 1708376604}
   - component: {fileID: 1708376606}
   - component: {fileID: 1708376607}
-  - component: {fileID: 1708376609}
+  - component: {fileID: 1708376608}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -1284,7 +1284,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1708376609
+--- !u!114 &1708376608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
