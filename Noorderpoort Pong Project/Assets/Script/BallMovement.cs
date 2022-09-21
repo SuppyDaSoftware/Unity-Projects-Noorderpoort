@@ -6,7 +6,6 @@ public class BallMovement : MonoBehaviour
     public float BallForce = 500f;
     Vector2 MyVelocity = new Vector2(1, 1);
 
-
     // Start is called before the first frame update
     void Start()
     {
