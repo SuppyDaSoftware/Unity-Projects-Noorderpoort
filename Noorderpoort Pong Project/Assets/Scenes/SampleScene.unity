@@ -705,7 +705,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 100, y: -50}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 478.52, y: 86.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &600871348
 MonoBehaviour:
@@ -729,7 +729,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 27
+    m_FontSize: 56
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -931,7 +931,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -100, y: -50}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 478.52, y: 86.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &902778067
 MonoBehaviour:
@@ -955,11 +955,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 27
+    m_FontSize: 56
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1538,5 +1538,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Score: 0
   player2Score: 0
-  p1Text: {fileID: 0}
-  p2Text: {fileID: 0}
+  p1Text: {fileID: 600871348}
+  p2Text: {fileID: 902778067}

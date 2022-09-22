@@ -36,13 +36,15 @@ public class BallMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("LeftBarrier"))
         {
-            //Ball back in center
+            //Ball back to center
             ResetBall();
+            GameObject.Find("Canvas").GetComponent<ScoreScript>().AddP2Score();
         }
         if (collision.gameObject.CompareTag("RightBarrier"))
         {
-            //Ball back in center
+            //Ball back to center
             ResetBall();
+            GameObject.Find("Canvas").GetComponent<ScoreScript>().AddP1Score();
         }
     }
     private void ResetBall()
