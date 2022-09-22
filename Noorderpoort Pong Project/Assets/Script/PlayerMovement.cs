@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(new Vector3(0, Input.GetAxis("Player2") * Time.deltaTime * playerSpeed));
         }
-        
+        transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, -4.28f, 4.28f));
+
     }
 }

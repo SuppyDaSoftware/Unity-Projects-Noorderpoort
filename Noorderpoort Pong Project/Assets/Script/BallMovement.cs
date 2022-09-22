@@ -29,5 +29,6 @@ public class BallMovement : MonoBehaviour
         {
             direction = Vector2.Reflect(direction, collision.contacts[0].normal);
         }
+        
     }
 }
