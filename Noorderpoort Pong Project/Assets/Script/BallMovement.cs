@@ -32,8 +32,10 @@ public class BallMovement : MonoBehaviour
             direction = Vector2.Reflect(direction, collision.contacts[0].normal);
         }
     }
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Reset the ball when other player scores
         if (collision.gameObject.CompareTag("LeftBarrier"))
         {
             //Ball back to center

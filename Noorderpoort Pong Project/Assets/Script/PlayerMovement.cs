@@ -8,9 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        //Player collision movement to stop when it hits the border
-        
+    {   
+        //Add paddle movement for both players to move their paddle
 
         //Player 1 movement
         if (playerNumber == 1)
