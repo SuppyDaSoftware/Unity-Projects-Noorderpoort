@@ -56,7 +56,7 @@ public class BallMovement : MonoBehaviour
         direction = direction.normalized;
 
         //Reset Ball if stuck or slow
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             transform.position = new Vector2(0, 0);
             direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
