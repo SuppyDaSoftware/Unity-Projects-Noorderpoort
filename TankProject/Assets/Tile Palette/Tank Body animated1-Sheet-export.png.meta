@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7034c2e7b991dec4a9eaac71248fbe12
+guid: ecc0e796be7fe4647b725664b24dbdd4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 288, z: 160, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -117,11 +117,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tilesheet 2_0
+      name: Tank Body animated1-Sheet-export_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 288
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -131,18 +131,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d12321665ee8d444abd2e407cf2efea
-      internalID: 564453746
+      spriteID: 834e27171e98baf45b078baaae4a86da
+      internalID: -824901254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet 2_1
+      name: Tank Body animated1-Sheet-export_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 288
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -152,18 +152,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20e5fbd75b1106341b46ba5107bb8e4b
-      internalID: 1194686426
+      spriteID: 63d8de40aa71dbc40b926dacd2299c32
+      internalID: 684818441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet 2_2
+      name: Tank Body animated1-Sheet-export_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 288
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -173,18 +173,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54355f8c429e0bd42a61eea7697d5ac2
-      internalID: -2033490959
+      spriteID: d08a47cf95dfae24887044c322d5480a
+      internalID: -912649478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet 2_3
+      name: Tank Body animated1-Sheet-export_3
       rect:
         serializedVersion: 2
         x: 96
-        y: 288
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -194,18 +194,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7caa5271a2dd9e4aa0c1a08fed04c49
-      internalID: 1680173330
+      spriteID: d0ac792ba3d19f5499d64fbf89cddcf5
+      internalID: 17441422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet 2_4
+      name: Tank Body animated1-Sheet-export_4
       rect:
         serializedVersion: 2
         x: 128
-        y: 288
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -215,8 +215,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 287190ebd12c73344b642734508136c5
-      internalID: -1988444250
+      spriteID: 8c79d76dcc51088409371d39ca891e67
+      internalID: 1527405720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Body animated1-Sheet-export_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec72e43903aa67b4d90549da9abe8368
+      internalID: 1910862558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Body animated1-Sheet-export_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cff6e0160748894ab1d7b3fb658ae61
+      internalID: -1205729638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Body animated1-Sheet-export_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c104d97c8916f5244ba5a5fe3026dc0e
+      internalID: 851890835
       vertices: []
       indices: 
       edges: []
@@ -225,18 +288,21 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tilesheet 2_2: -2033490959
-      Tilesheet 2_0: 564453746
-      Tilesheet 2_1: 1194686426
-      Tilesheet 2_3: 1680173330
-      Tilesheet 2_4: -1988444250
+      Tank Body animated1-Sheet-export_3: 17441422
+      Tank Body animated1-Sheet-export_0: -824901254
+      Tank Body animated1-Sheet-export_7: 851890835
+      Tank Body animated1-Sheet-export_4: 1527405720
+      Tank Body animated1-Sheet-export_5: 1910862558
+      Tank Body animated1-Sheet-export_6: -1205729638
+      Tank Body animated1-Sheet-export_1: 684818441
+      Tank Body animated1-Sheet-export_2: -912649478
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
