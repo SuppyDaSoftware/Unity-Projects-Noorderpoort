@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 2893281386751057409}
   - component: {fileID: 7933231767738812408}
   - component: {fileID: -2590275607401032140}
+  - component: {fileID: 7239821400841196615}
   m_Layer: 0
   m_Name: Fryslan Bord
   m_TagString: Untagged
@@ -248,3 +249,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7239821400841196615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8468492829035515646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff4b438b9c177541b2126dfdb4e726b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletTtl: 5

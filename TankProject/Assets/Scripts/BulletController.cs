@@ -23,6 +23,7 @@ public class BulletController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        GameObject.Find("GameManager").GetComponent<TurnManager>().SwapTurn();
         Destroy (gameObject);
     }
 }

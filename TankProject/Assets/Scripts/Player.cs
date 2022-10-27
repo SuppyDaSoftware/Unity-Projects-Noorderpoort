@@ -5,27 +5,22 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int playerNumber;
-    [SerializeField]
-    Material activeMat;
-    [SerializeField]
-    Material inactiveMat;
     bool isPlayerTurn = false;
 
-    // Start is called before the first frame update
     void Start()
     {
-        GetComponent<SpriteRenderer>().material = inactiveMat;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Space) && isPlayerTurn == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isPlayerTurn == true)
         {
             Invoke("SwapTurn", 0.1f);
         }
-    } 
-    void SwapTurn()
+    }
+    public void SwapTurn()
     {
         GameObject.Find("GameManager").GetComponent<TurnManager>().SwapTurn();
     }
@@ -34,13 +29,12 @@ public class Player : MonoBehaviour
         if (b == true)
         {
             isPlayerTurn = true;
-            GetComponent<SpriteRenderer>().material = activeMat;
+            
         }
         else
         {
             isPlayerTurn = false;
-            GetComponent<SpriteRenderer>().material = inactiveMat;
+         
         }
     }
-
 }

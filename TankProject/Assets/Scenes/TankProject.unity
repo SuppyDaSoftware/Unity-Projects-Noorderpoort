@@ -1212,8 +1212,8 @@ GameObject:
   - component: {fileID: 940038901}
   - component: {fileID: 940038900}
   - component: {fileID: 940038899}
-  - component: {fileID: 940038898}
   - component: {fileID: 940038897}
+  - component: {fileID: 940038902}
   m_Layer: 0
   m_Name: Enemy Tank
   m_TagString: Player
@@ -1273,19 +1273,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &940038898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 940038896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c11fb4d219b0d46a7394da41640653, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
 --- !u!114 &940038899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1301,7 +1288,7 @@ MonoBehaviour:
   barrelRotator: {fileID: 1244280625}
   firePoint: {fileID: 411211341}
   bulletToFire: {fileID: 8862502724620162719, guid: 84c809af9033b6341b8f2fbbe2fed34b, type: 3}
-  MoveSpeed: 0
+  MoveSpeed: 10
   PlayerNumber: 2
 --- !u!50 &940038900
 Rigidbody2D:
@@ -1341,6 +1328,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &940038902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940038896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b542dc9df1f64045897266f4484cf31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 2
 --- !u!1 &1224474488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,7 +1641,7 @@ GameObject:
   - component: {fileID: 1373801587}
   - component: {fileID: 1373801588}
   m_Layer: 0
-  m_Name: TurnManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1960,8 +1960,8 @@ GameObject:
   - component: {fileID: 2134605767}
   - component: {fileID: 2134605766}
   - component: {fileID: 2134605768}
-  - component: {fileID: 2134605769}
   - component: {fileID: 2134605770}
+  - component: {fileID: 2134605771}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Player
@@ -2025,19 +2025,6 @@ MonoBehaviour:
   bulletToFire: {fileID: 8862502724620162719, guid: 84c809af9033b6341b8f2fbbe2fed34b, type: 3}
   MoveSpeed: 10
   PlayerNumber: 1
---- !u!114 &2134605769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134605765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c11fb4d219b0d46a7394da41640653, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
 --- !u!212 &2134605770
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2090,3 +2077,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2134605771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134605765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b542dc9df1f64045897266f4484cf31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 1

@@ -32,15 +32,15 @@ public class TurnManager : MonoBehaviour
         {
             Debug.Log("player1active");
             //Make player 1 active
-            player1.GetComponent<Player>().SetActive(true);
-            player2.GetComponent<Player>().SetActive(false);
+            player1.GetComponent<TankController>().enabled = true;
+            player2.GetComponent<TankController>().enabled = false;
         }
         else if (playerTurn == 2)
         {
             Debug.Log("player2active");
             //Make player 2 active
-            player1.GetComponent<Player>().SetActive(false);
-            player2.GetComponent<Player>().SetActive(true);
+            player1.GetComponent<TankController>().enabled = false;
+            player2.GetComponent<TankController>().enabled = true;
         }
     }
     public void SwapTurn()
@@ -49,15 +49,15 @@ public class TurnManager : MonoBehaviour
         {
             Debug.Log("It is Player 2's turn");
             playerTurn = 2;
-            player1.GetComponent<Player>().SetActive(false);
-            player2.GetComponent<Player>().SetActive(true);
+            player1.GetComponent<TankController>().enabled = false;
+            player2.GetComponent<TankController>().enabled = true;
         }
         else if (playerTurn == 2)
         {
             Debug.Log("It is Player 1's turn");
             playerTurn = 1;
-            player1.GetComponent<Player>().SetActive(true);
-            player2.GetComponent<Player>().SetActive(false);
+            player1.GetComponent<TankController>().enabled = true;
+            player2.GetComponent<TankController>().enabled = false;
         }
     }
 }
