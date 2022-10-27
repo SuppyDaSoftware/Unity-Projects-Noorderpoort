@@ -49,6 +49,7 @@ public class TankController : MonoBehaviour
         }
         if (PlayerNumber == 1) { }
 
+        //Move tank left and right
         transform.Translate(Vector2.right * Input.GetAxisRaw("Horizontal") * MoveSpeed * Time.deltaTime);
     }
 }
