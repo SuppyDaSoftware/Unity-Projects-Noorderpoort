@@ -23,7 +23,23 @@ public class BulletController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Add score to collision
+        if (collision.gameObject.CompareTag("Player"))
+        {
+   
+            GameObject.Find("Canvas").GetComponent<ScoreScript>().AddP2Score();
+        }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+           
+            GameObject.Find("Canvas").GetComponent<ScoreScript>().AddP1Score();
+        }
+
+        //Swap player turn
         GameObject.Find("GameManager").GetComponent<TurnManager>().SwapTurn();
+
+        //Delete bullet
         Destroy (gameObject);
     }
 }

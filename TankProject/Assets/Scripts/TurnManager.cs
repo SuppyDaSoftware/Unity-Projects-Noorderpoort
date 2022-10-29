@@ -18,7 +18,12 @@ public class TurnManager : MonoBehaviour
             {
                 player1 = g;
             }
-            else if (g.GetComponent<Player>().playerNumber == 2)
+        }
+
+        GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject g in enemy)
+        {
+            if (g.GetComponent<Player>().playerNumber == 2)
             {
                 player2 = g;
             }

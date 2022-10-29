@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScoreScript : MonoBehaviour
 {
     public int player1Score = 0;
     public int player2Score = 0;
-    public Text p1Text;
-    public Text p2Text;
+    public TextMeshProUGUI p1Text;
+    public TextMeshProUGUI p2Text;
 
     public void AddP1Score()
     {
