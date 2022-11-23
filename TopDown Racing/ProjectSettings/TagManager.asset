@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Road
+    uniqueID: 827945039
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Skidmarks
+    uniqueID: 3603448045
     locked: 0
