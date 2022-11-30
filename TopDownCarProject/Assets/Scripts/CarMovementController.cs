@@ -32,7 +32,6 @@ public class CarMovementController : MonoBehaviour
     //Apply the force of physics without framerate limit
     private void FixedUpdate()
     {
-        Debug.DrawLine(transform.position, Vector3.forward * 10);
         ApplyEngineForce();
 
         KillOrthagonalVelocity();
@@ -82,10 +81,9 @@ public class CarMovementController : MonoBehaviour
     {
         float minSpeedBeforeAllowedTurning = (carRB.velocity.magnitude / 8);
         minSpeedBeforeAllowedTurning = Mathf.Clamp01(minSpeedBeforeAllowedTurning);
-        Debug.Log(minSpeedBeforeAllowedTurning);
 
         //Adjust angle by rotation from input
-        rotationAngle -= steeringForce * turningForce * minSpeedBeforeAllowedTurning;
+        rotationAngle -= steeringForce * -1 * turningForce * minSpeedBeforeAllowedTurning;
 
         //Apply steering by rotating the Car
         //carRB.MoveRotation(Quaternion.Euler(Vector3.up * rotationAngle));
