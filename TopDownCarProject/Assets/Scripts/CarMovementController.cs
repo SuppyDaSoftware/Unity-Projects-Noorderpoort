@@ -30,7 +30,7 @@ public class CarMovementController : MonoBehaviour
     }
 
     //Apply the force of physics without framerate limit
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         ApplyEngineForce();
 
@@ -63,7 +63,7 @@ public class CarMovementController : MonoBehaviour
         //Apply a drag that will slow down Car
         if (accelerationForce == 0)
         {
-            carRB.drag = Mathf.Lerp(carRB.drag, 10.0f, Time.fixedDeltaTime * 6);
+            carRB.drag = Mathf.Lerp(carRB.drag, 4.0f, Time.fixedDeltaTime * 6);
         }
         else
         {
