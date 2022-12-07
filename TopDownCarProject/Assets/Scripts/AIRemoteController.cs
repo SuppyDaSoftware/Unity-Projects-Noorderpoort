@@ -4,29 +4,54 @@ using UnityEngine;
 
 public class AIRemoteController : MonoBehaviour
 {
-    [Header("Input variables")]
-    BasicCarController basicCarController;
-    public float forwards = 1;
-    public float turn = -1;
+   [SerializeField] private Transform targetPositionTransform;
 
-    [Header("Level variables")]
-    private Transform targetPositionTransform;
+    BasicCarController basicCarController;
+    
 
     private void Awake()
     {
-        basicCarController= GetComponent<BasicCarController>();
-        targetPositionTransform = transform;
+        basicCarController = GetComponent<BasicCarController>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void fixedUpdate()
+    void FixedUpdate()
     {
+        Vector3 targetPosition = targetPositionTransform.position;
+        float forwards = 0;
+        float turn = 0;
+
+        Vector3 directionToTarget = (targetPosition - transform.position);
+        float dot = Vector3.Dot(transform.forward, directionToTarget);
+
+        float distance = Vector3.Distance(transform.position, targetPosition);
+        float minDistance = 2;
+
+        if (distance > minDistance)
+        {
+
+            if (dot > 0)
+            {
+                forwards = 1;
+            }
+            else if (dot < 0)
+            {
+                forwards = -1;
+            }
+
+            float angle = Vector3.SignedAngle(transform.forward, directionToTarget, Vector3.up);
+
+            if (angle > 5)
+            {
+                turn = 1;
+            }
+            else if (angle < -5)
+            {
+                turn = -1;
+            }
+        } else {
+            targetPositionTransform = basicCarController.NextCheckPoint().transform;
+        }
         basicCarController.ChangeSpeed(forwards);
         basicCarController.Turn(turn);
     }
