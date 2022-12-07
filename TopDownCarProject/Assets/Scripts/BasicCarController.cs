@@ -6,10 +6,10 @@ using UnityEngine;
 public class BasicCarController : MonoBehaviour
 {
     [Header("Basic Car Variables")]
-    public float maxSpeed = 10;
-    public float turnSpeed = 50;
-    public float accel = 2.5f;
-    public float speed = 0;
+    public float maxSpeed;
+    public float turnSpeed;
+    public float accel;
+    public float speed;
 
     [Header("Level Variables")]
     //we maken een array; een lijst van gameobjects
@@ -36,6 +36,16 @@ public class BasicCarController : MonoBehaviour
     public void Turn(float direction)
     {
         //transform.Rotate(0, 0, direction * turnSpeed * Time.deltaTime);
-        transform.Rotate(new Vector3(0,1,0) * direction * turnSpeed *Time.deltaTime, Space.Self);
+        transform.Rotate(new Vector3(0,1,0) * direction * turnSpeed * Time.deltaTime, Space.Self);
+    }
+    public GameObject NextCheckPoint()
+    {
+        checkPointCounter++;
+        if (checkPointCounter > checkPoints.Length - 1)
+        { 
+            checkPointCounter= 0;
+        }
+        currentCheckPoint= checkPoints[checkPointCounter];
+        return currentCheckPoint;
     }
 }
