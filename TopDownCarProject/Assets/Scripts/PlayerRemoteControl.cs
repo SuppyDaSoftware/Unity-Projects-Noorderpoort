@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class PlayerRemoteControl : MonoBehaviour
 {
-    BasicCarController basicCarController;
+    VroomVroomController basicCarController;
     public float forwards;
     public float turn;
 
+    public Rigidbody rb;
     //[Header("Checkpoint Checker")]
     //public GameObject[] checkPoints;
     //public GameObject currentCheckPoint;
     //public int checkPointCounter = 0;
     void Awake()
     {
-        basicCarController = GetComponent<BasicCarController>();
+        basicCarController = GetComponent<VroomVroomController>();
         // NextCheckPoint();
     }
     void Update()
@@ -25,8 +26,8 @@ public class PlayerRemoteControl : MonoBehaviour
             turn = Input.GetAxis("Horizontal");
         }
 
-        basicCarController.ChangeSpeed(forwards);
-        basicCarController.Turn(turn);
+        basicCarController.verticalInput = forwards;
+        basicCarController.horizontalInput = turn;
     }
     //public GameObject NextCheckPoint()
     //{

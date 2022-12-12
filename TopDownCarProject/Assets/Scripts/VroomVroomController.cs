@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
 
-public class AIRemoteController : MonoBehaviour
+public class VroomVroomController: MonoBehaviour
 {
-   [SerializeField] private Transform targetPositionTransform;
-
     public float horizontalInput;
     public float verticalInput;
     public float currentBrakeForce;
@@ -28,7 +28,7 @@ public class AIRemoteController : MonoBehaviour
     [SerializeField] public WheelCollider backRightWheelCollider;
 
     [SerializeField] public Transform frontLeftWheelTransform;
-    [SerializeField] public Transform frontRightWheelTransform;
+    [SerializeField] public  Transform frontRightWheelTransform;
     [SerializeField] public Transform backLeftWheelTransform;
     [SerializeField] public Transform backRightWheelTransform;
 
@@ -36,64 +36,42 @@ public class AIRemoteController : MonoBehaviour
     //[SerializeField] private GroundCheck groundCheck;
     //[SerializeField] private CheckPointManager checkPointManager;
 
+    [Header("AI")]
+    public GameObject[] checkPoints;
+    public GameObject currentCheckPoint;
+    public int checkPointCounter = 0;
 
     public Rigidbody rb;
 
-    VroomVroomController basicCarController;
-    
-
     private void Awake()
     {
-        basicCarController = GetComponent<VroomVroomController>();
         rb = GetComponent<Rigidbody>();
         playerRemoteControl = GetComponent<PlayerRemoteControl>();
     }
+
     private void Start()
     {
         rb.centerOfMass += new Vector3(0f, -1.5f, 0f);
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        Vector3 targetPosition = targetPositionTransform.position;
-        float forwards = 0;
-        float turn = 0;
+        //if (Vector3.Distance(checkPointManager.GetCurrentCheckPoint().transform.position, transform.position) <= 2f)
+        //{
+        //    checkPointManager.SetCheckPointNum();
+        //}
 
-        Vector3 directionToTarget = (targetPosition - transform.position);
-        float dot = Vector3.Dot(transform.forward, directionToTarget);
+        //speedText.text = Mathf.Round(rb.velocity.magnitude * 3.6f) + "KM/H";
 
-        float distance = Vector3.Distance(transform.position, targetPosition);
-        float minDistance = 2;
+        //Flip Car
+        //if (!groundCheck.IsGrounded() && rb.velocity.magnitude < 1 && Input.GetKeyDown(KeyCode.R))
+        //{
+        //    transform.rotation = Quaternion.identity;
+        //}
+    }
 
-        if (distance > minDistance)
-        {
-
-            if (dot > 0)
-            {
-                forwards = 1;
-            }
-            else if (dot < 0)
-            {
-                forwards = -1;
-            }
-
-            float angle = Vector3.SignedAngle(transform.forward, directionToTarget, Vector3.up);
-
-            if (angle > 5)
-            {
-                turn = 1;
-            }
-            else if (angle < -5)
-            {
-                turn = -1;
-            }
-        } else {
-            targetPositionTransform = basicCarController.NextCheckPoint().transform;
-        }
-
-        basicCarController.motorForce = forwards;
-        basicCarController.maxSteeringAngle = turn;
-
+    private void FixedUpdate()
+    {
         //User Input
 
         //verticalInput = Input.actions["Throttle"].ReadValue<float>();
@@ -103,7 +81,7 @@ public class AIRemoteController : MonoBehaviour
 
         //verticalInput = Input.GetAxis("Vertical");
         //horizontalInput = Input.GetAxis("Horizontal");
-        //isEBraking = Input.GetKey(KeyCode.Space);
+        isEBraking = Input.GetKey(KeyCode.Space);
 
         //Driving Forward
         if (verticalInput > 0)
@@ -176,23 +154,6 @@ public class AIRemoteController : MonoBehaviour
         //UpdateWheel(backLeftWheelCollider, backLeftWheelTransform);
         //UpdateWheel(backRightWheelCollider, backRightWheelTransform);
     }
-    private void Update()
-    {
-        //if (Vector3.Distance(checkPointManager.GetCurrentCheckPoint().transform.position, transform.position) <= 2f)
-        //{
-        //    checkPointManager.SetCheckPointNum();
-        //}
-
-        //speedText.text = Mathf.Round(rb.velocity.magnitude * 3.6f) + "KM/H";
-
-        //Flip Car
-        //if (!groundCheck.IsGrounded() && rb.velocity.magnitude < 1 && Input.GetKeyDown(KeyCode.R))
-        //{
-        //    transform.rotation = Quaternion.identity;
-        //}
-    }
-
-    
 
     private void UpdateWheel(WheelCollider wheelCollider, Transform wheelTransform)
     {
@@ -202,5 +163,15 @@ public class AIRemoteController : MonoBehaviour
         wheelTransform.rotation = Quaternion.Lerp(wheelTransform.rotation, rot, Time.deltaTime * 2);
         wheelTransform.position = pos;
         wheelTransform.position = Vector3.Lerp(wheelTransform.position, pos, Time.deltaTime * 2);
+    }
+    public GameObject NextCheckPoint()
+    {
+        checkPointCounter++;
+        if (checkPointCounter > checkPoints.Length - 1)
+        {
+            checkPointCounter = 0;
+        }
+        currentCheckPoint = checkPoints[checkPointCounter];
+        return currentCheckPoint;
     }
 }
