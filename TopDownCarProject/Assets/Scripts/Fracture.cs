@@ -1,40 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Fracture : MonoBehaviour
 {
 
     public GameObject fractured;
+    GameObject fractureContainer;
     public float breakForce;
 
-    public void Awake()
+    public bool TimerOn = false;
+    public float timerLeft;
+    void Awake()
     {
         //BreakTheThing();
+        //TimerOn = true;
     }
 
-    public void Update()
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            BreakTheThing();
-        }
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    BreakTheThing();
+        //}        
     }
-    public void BreakTheThing()
+
+    void BreakTheThing()
     {
-        Instantiate(fractured, transform.position, transform.rotation);
+        fractureContainer = Instantiate(fractured, transform.position, transform.rotation);
         foreach (Rigidbody rb in fractured.GetComponentsInChildren<Rigidbody>())
         {
             Vector3 force = (rb.transform.position - transform.position).normalized * breakForce;
             rb.AddForce(force);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
-    public void OnCollisionEnter(Collision col)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (col.gameObject.name == "testFracture")
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("AI"))
         {
+
             BreakTheThing();
         }
     }

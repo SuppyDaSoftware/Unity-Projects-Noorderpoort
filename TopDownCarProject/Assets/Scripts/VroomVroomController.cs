@@ -115,8 +115,8 @@ public class VroomVroomController: MonoBehaviour
                 frontLeftWheelCollider.brakeTorque = breakForce;
                 backRightWheelCollider.brakeTorque = breakForce;
                 backLeftWheelCollider.brakeTorque = breakForce;
-                rb.drag = Mathf.Lerp(rb.drag, 0.5f, 0.3f * Time.deltaTime);
-                rb.angularDrag = Mathf.Lerp(rb.angularDrag, 0.5f, 0.3f * Time.deltaTime);
+                rb.drag = Mathf.Lerp(rb.drag, 0.7f, 0.6f * Time.deltaTime);
+                rb.angularDrag = Mathf.Lerp(rb.angularDrag, 0.7f, 0.5f * Time.deltaTime);
             }
         }
         else
