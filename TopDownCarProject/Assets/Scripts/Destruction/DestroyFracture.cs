@@ -25,8 +25,7 @@ public class DestroyFracture : MonoBehaviour
                 updateTimer(timerLeft);
             }
             else
-            {
-                //Debug.Log("Destroying Objects");
+            { 
                 timerLeft = 0;
                 TimerOn = false;
                 Destroy(gameObject);
@@ -38,7 +37,5 @@ public class DestroyFracture : MonoBehaviour
     {
         currentTime += 1;
         float seconds = Mathf.FloorToInt(currentTime % 60);
-
-        Debug.Log("Amount of seconds left " + seconds);
     }
 }

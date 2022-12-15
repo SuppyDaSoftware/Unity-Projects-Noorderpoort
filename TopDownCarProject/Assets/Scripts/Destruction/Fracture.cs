@@ -15,16 +15,12 @@ public class Fracture : MonoBehaviour
     public float timerLeft;
     void Awake()
     {
-        //BreakTheThing();
-        //TimerOn = true;
+       
     }
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.F))
-        //{
-        //    BreakTheThing();
-        //}        
+             
     }
 
     void BreakTheThing()

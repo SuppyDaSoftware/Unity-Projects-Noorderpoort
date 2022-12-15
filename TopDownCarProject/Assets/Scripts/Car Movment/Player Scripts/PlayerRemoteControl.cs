@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerRemoteControl : MonoBehaviour
 {
-    VroomVroomController basicCarController;
+    BasicCarController playerInput;
     public float forwards;
     public float turn;
 
@@ -12,22 +12,27 @@ public class PlayerRemoteControl : MonoBehaviour
     //public GameObject currentCheckPoint;
     //public int checkPointCounter = 0;
     void Awake()
-    {
-        basicCarController = GetComponent<VroomVroomController>();
+    {     
+        playerInput = GetComponent<BasicCarController>();
         // NextCheckPoint();
     }
     void Update()
     {
-
-        forwards = Input.GetAxis("Vertical");
-
+        if (Input.GetAxis("Vertical") != 0)
+        {
+            forwards = Input.GetAxis("Vertical");
+        }
+        if (Input.GetAxisRaw("Vertical") == 0)
+        {
+            playerInput.Idle();
+        }
         if (Input.GetAxis("Horizontal") != 0)
         {
             turn = Input.GetAxis("Horizontal");
         }
-
-        basicCarController.verticalInput = forwards;
-        basicCarController.horizontalInput = turn;
+        
+        playerInput.ChangeSpeed (forwards);
+        playerInput.Turn (turn);
     }
     //public GameObject NextCheckPoint()
     //{
