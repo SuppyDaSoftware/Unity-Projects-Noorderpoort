@@ -12,7 +12,7 @@ public class PlayerRemoteControl : MonoBehaviour
     //public GameObject currentCheckPoint;
     //public int checkPointCounter = 0;
     void Awake()
-    {     
+    {
         playerInput = GetComponent<BasicCarController>();
         // NextCheckPoint();
     }
@@ -20,19 +20,16 @@ public class PlayerRemoteControl : MonoBehaviour
     {
         if (Input.GetAxis("Vertical") != 0)
         {
-            forwards = Input.GetAxis("Vertical");
+            forwards = Input.GetAxisRaw("Vertical");
         }
-        if (Input.GetAxisRaw("Vertical") == 0)
-        {
-            playerInput.Idle();
-        }
+
         if (Input.GetAxis("Horizontal") != 0)
         {
-            turn = Input.GetAxis("Horizontal");
+            turn = Input.GetAxisRaw("Horizontal");
         }
-        
-        playerInput.ChangeSpeed (forwards);
-        playerInput.Turn (turn);
+
+        playerInput.ChangeSpeed(forwards);
+        playerInput.Turn(turn);
     }
     //public GameObject NextCheckPoint()
     //{

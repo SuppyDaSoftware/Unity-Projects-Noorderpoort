@@ -1,76 +1,82 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class BasicCarController : MonoBehaviour
 {
-    Rigidbody carRb;
     [Header("Basic Car Variables")]
-    public float maxSpeed;
-    public float turnSpeed;
-    public float accel;
-    public float speed;
-    public float drag;
+    public float maxSpeed = 100;
+    public float turnSpeed = 25;
+    public float accel = 2.5f;
+    public float speed = 0;
+
+    [SerializeField]    
+    Rigidbody rb;
+    bool isGrounded;
 
     [Header("Level Variables")]
-    //we maken een array; een lijst van gameobjects
     public GameObject[] checkPoints;
     public GameObject currentCheckPoint;
     public int checkPointCounter = 0;
+    public LayerMask GroundLayer;
+    float GroundedDistance = 1;
+    RaycastHit hit;
 
     private void Awake()
     {
-        carRb= GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
+    private bool HandleIsGrounded()
+    {
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, GroundedDistance, GroundLayer);
+        return isGrounded;
+    }
+    public void FixedUpdate()
+    {
+        if (!HandleIsGrounded())
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, 0f), 1.0f * Time.deltaTime);
+        }
+    }
+
     public void ChangeSpeed(float throttle)
     {
-        if (throttle != 0)
+        float forwardSpeed = Vector3.Dot(transform.forward, rb.velocity);
+
+        if (forwardSpeed < maxSpeed && forwardSpeed > -maxSpeed && isGrounded)
         {
-            speed = speed + accel * throttle * Time.deltaTime;
-            speed = Mathf.Clamp(speed, -maxSpeed, maxSpeed);
-            if (accel == 0)
+
+            if (throttle != 0)
             {
-                carRb.drag = Mathf.Lerp(carRb.drag, drag, Time.deltaTime);
+                speed = speed + accel * throttle * Time.deltaTime;
+                speed = Mathf.Clamp(speed, -maxSpeed, maxSpeed);
+                rb.drag = Mathf.Lerp(rb.drag, 0, Time.deltaTime);
             }
- 
-        }
-        else
-        {
-            speed = Mathf.Lerp(speed, 0, Time.deltaTime);
-            carRb.drag = 50000;
-        }
+            else
+            {
+                speed = Mathf.Lerp(speed, 0, Time.deltaTime);
+                rb.drag = Mathf.Lerp(rb.drag, 10, Time.deltaTime);
+            }
 
-
-        Vector3 velocity = Vector3.forward * speed;
-        transform.Translate(velocity * Time.deltaTime, Space.Self);
+            Vector3 velocity = Vector3.forward * speed;
+            rb.AddRelativeForce(velocity, ForceMode.Acceleration);
+        }
     }
-
     public void Turn(float direction)
     {
-        //transform.Rotate(0, 0, direction * turnSpeed * Time.deltaTime);
-        transform.Rotate(new Vector3(0,1,0) * direction * turnSpeed * Time.deltaTime, Space.Self);
+        transform.Rotate(0, direction * turnSpeed * Time.deltaTime, 0);
     }
-
-    public void Idle()
-    {
-        if (speed < 0)
-        {
-            speed += Time.deltaTime;
-        }
-        if (speed > 0)
-        {
-            speed -= Time.deltaTime;
-        }
-    }
-    public GameObject NextCheckPoint()
+    public GameObject NextCheckpoint()
     {
         checkPointCounter++;
+        print(checkPointCounter);
         if (checkPointCounter > checkPoints.Length - 1)
-        { 
-            checkPointCounter= 0;
+        {
+            checkPointCounter = 0;
         }
-        currentCheckPoint= checkPoints[checkPointCounter];
+        currentCheckPoint = checkPoints[checkPointCounter];
         return currentCheckPoint;
+
     }
 }

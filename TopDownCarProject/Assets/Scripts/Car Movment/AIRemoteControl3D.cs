@@ -7,11 +7,12 @@ public class AIRemoteControl3D : MonoBehaviour
     [SerializeField] private Transform targetPositionTransform;
 
     BasicCarController basicCarController;
-    
+
 
     private void Awake()
     {
         basicCarController = GetComponent<BasicCarController>();
+        targetPositionTransform = basicCarController.checkPoints[0].transform;
     }
 
 
@@ -24,35 +25,37 @@ public class AIRemoteControl3D : MonoBehaviour
         Vector3 directionToTarget = (targetPosition - transform.position);
         float dot = Vector3.Dot(transform.forward, directionToTarget);
 
-        float distance = Vector3.Distance(transform.position, targetPosition);
-        float minDistance = 2;
-
-        if (distance > minDistance)
+        if (dot > 0)
         {
-
-            if (dot > 0)
-            {
-                forwards = 1;
-            }
-            else if (dot < 0)
-            {
-                forwards = -1;
-            }
-
-            float angle = Vector3.SignedAngle(transform.forward, directionToTarget, Vector3.up);
-
-            if (angle > 5)
-            {
-                turn = 1;
-            }
-            else if (angle < -5)
-            {
-                turn = -1;
-            }
-        } else {
-            targetPositionTransform = basicCarController.NextCheckPoint().transform;
+            forwards = 1;
         }
+        else if (dot < 0)
+        {
+            forwards = -1;
+        }
+
+        float angle = Vector3.SignedAngle(transform.forward, directionToTarget, Vector3.up);
+
+        if (angle > 5)
+        {
+            turn = 1;
+        }
+        else if (angle < -5)
+        {
+            turn = -1;
+        }
+        
+
+
         basicCarController.ChangeSpeed(forwards);
         basicCarController.Turn(turn);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Checkpoint"))
+        {
+            targetPositionTransform = basicCarController.NextCheckpoint().transform;
+        }
     }
 }
