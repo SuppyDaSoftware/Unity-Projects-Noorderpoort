@@ -7,14 +7,9 @@ public class PlayerRemoteControl : MonoBehaviour
     public float turn;
 
     public Rigidbody rb;
-    //[Header("Checkpoint Checker")]
-    //public GameObject[] checkPoints;
-    //public GameObject currentCheckPoint;
-    //public int checkPointCounter = 0;
     void Awake()
     {
-        playerInput = GetComponent<BasicCarController>();
-        // NextCheckPoint();
+        playerInput = GetComponent<BasicCarController>(); 
     }
     void Update()
     {
@@ -31,14 +26,5 @@ public class PlayerRemoteControl : MonoBehaviour
         playerInput.ChangeSpeed(forwards);
         playerInput.Turn(turn);
     }
-    //public GameObject NextCheckPoint()
-    //{
-    //    checkPointCounter++;
-    //    if (checkPointCounter == checkPoints.Length)
-    //    {
-    //        checkPointCounter = 1;
-    //    }
-    //    currentCheckPoint = checkPoints[checkPointCounter];
-    //    return currentCheckPoint;
-    //}
+
 }

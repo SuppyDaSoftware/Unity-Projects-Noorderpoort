@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BasicCarController : MonoBehaviour
 {
-    [Header("Basic Car Variables")]
+
+    [FormerlySerializedAs("KMH")] [Header("Basic Car Variables")]
     public float maxSpeed = 100;
     public float turnSpeed = 25;
     public float accel = 2.5f;
     public float speed = 0;
-
     [SerializeField]    
     Rigidbody rb;
     bool isGrounded;
