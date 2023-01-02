@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
 public class BasicCarController : MonoBehaviour
@@ -23,6 +24,10 @@ public class BasicCarController : MonoBehaviour
     public LayerMask GroundLayer;
     float GroundedDistance = 1;
     RaycastHit hit;
+
+    [Header("Slope Handling")] 
+    public float maxFloatAngle;
+    private RaycastHit slopeHIt;
 
     private void Awake()
     {
@@ -68,6 +73,7 @@ public class BasicCarController : MonoBehaviour
     {
         transform.Rotate(0, direction * turnSpeed * Time.deltaTime, 0);
     }
+    
     public GameObject NextCheckpoint()
     {
         checkPointCounter++;
