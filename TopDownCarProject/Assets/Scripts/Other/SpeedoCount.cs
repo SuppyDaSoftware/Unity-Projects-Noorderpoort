@@ -6,7 +6,7 @@ using TMPro;
 public class SpeedoCount : MonoBehaviour
 {
     public Rigidbody playerCar;
-    public float maxSpeed = 100f;
+    public float maxSpeed;
     public float minSpeedArrowAngle;
     public float maxSpeedArrowAngle;
 
@@ -17,7 +17,7 @@ public class SpeedoCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed = playerCar.velocity.magnitude * 3.6f;
+        speed = playerCar.velocity.magnitude * 0.5f;
 
         if (speedLable != null)
         {

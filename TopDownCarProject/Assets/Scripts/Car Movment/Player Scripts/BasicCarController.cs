@@ -84,6 +84,5 @@ public class BasicCarController : MonoBehaviour
         }
         currentCheckPoint = checkPoints[checkPointCounter];
         return currentCheckPoint;
-
     }
 }
